@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Control de Asistencia</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <section class="card">
+        <h1>Registro de asistencia</h1>
+        <p class="subtitle">Universidad · Control por geolocalización</p>
+
+        <form id="attendance-form" class="form" novalidate>
+          <label for="student">Alumno</label>
+          <select id="student" required>
+            <option value="">Cargando alumnos...</option>
+          </select>
+
+          <label for="code">Código de clase (5 caracteres)</label>
+          <input id="code" type="text" maxlength="5" minlength="5" placeholder="ABCDE" required autocomplete="off" />
+
+          <button id="submit-btn" type="submit">Registrar asistencia</button>
+        </form>
+
+        <div id="status" class="status" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <div id="spinner" class="spinner hidden" aria-hidden="true"></div>
+    <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

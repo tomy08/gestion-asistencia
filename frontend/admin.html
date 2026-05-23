@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel Docente</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <section class="card">
+        <h1>Panel docente</h1>
+        <p class="subtitle">Generación de código de asistencia</p>
+
+        <div class="form">
+          <label for="admin-password">Contraseña docente</label>
+          <input id="admin-password" type="password" placeholder="Contraseña" autocomplete="current-password" />
+
+          <div class="admin-actions">
+            <button id="refresh-btn" type="button" class="secondary">Actualizar código</button>
+            <button id="generate-btn" type="button">Generar nuevo código</button>
+          </div>
+        </div>
+
+        <div class="panel-box">
+          <p><strong>Código actual:</strong> <span id="current-code">-</span></p>
+          <p><strong>Generado:</strong> <span id="current-timestamp">-</span></p>
+        </div>
+
+        <div class="admin-actions">
+          <button id="copy-link-btn" type="button" class="secondary">Copiar link alumnos</button>
+        </div>
+
+        <div id="status" class="status" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <div id="spinner" class="spinner hidden" aria-hidden="true"></div>
+    <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+    <script type="module" src="/src/admin.js"></script>
+  </body>
+</html>
