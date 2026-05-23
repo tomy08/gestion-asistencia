@@ -5,10 +5,19 @@ import { generateClassCode, getCurrentCode, getStudents, registerAttendance } fr
 
 const app = express();
 const port = Number(process.env.PORT || 3001);
+const allowedOrigins = (process.env.CORS_ORIGIN || 'http://localhost:5173')
+  .split(',')
+  .map((origin) => origin.trim())
+  .filter(Boolean);
 
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN || '*'
+    origin(origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+      return callback(new Error('Origen no permitido por CORS'));
+    }
   })
 );
 app.use(express.json());
